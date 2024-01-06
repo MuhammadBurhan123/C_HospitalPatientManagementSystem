@@ -3,7 +3,6 @@
 
 #define MAX_PATIENTS 30
 
-// Structure to store patient information
 struct Patient {
     char name[50];
     int id;
@@ -12,7 +11,6 @@ struct Patient {
     bool treatmentStatus;
 };
 
-// Function to input patient data from the user
 void inputPatientData(struct Patient *patient) {
     printf("Enter patient name: ");
     scanf(" %[^\n]s", patient->name);
@@ -25,13 +23,11 @@ void inputPatientData(struct Patient *patient) {
     patient->treatmentStatus = false;
 }
 
-// Function to update treatment status
 void updateTreatmentStatus(struct Patient *patient) {
     patient->treatmentStatus = true;
     printf("Treatment status updated for patient %s (ID: %d).\n", patient->name, patient->id);
 }
 
-// Function to display patient information
 void displayPatients(struct Patient patients[], int patientCount) {
     printf("Patient Records:\n");
     for (int i = 0; i < patientCount; i++) {
@@ -48,7 +44,6 @@ int main() {
     struct Patient patients[MAX_PATIENTS];
     int patientCount = 0;
 
-    // Input data for new patients
     for (int i = 0; i < MAX_PATIENTS; i++) {
         inputPatientData(&patients[i]);
         patientCount++;
@@ -62,10 +57,8 @@ int main() {
         }
     }
 
-    // Update treatment status for a patient
     updateTreatmentStatus(&patients[0]);
 
-    // Display patient records
     displayPatients(patients, patientCount);
 
     return 0;
